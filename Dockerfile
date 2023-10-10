@@ -12,3 +12,9 @@ RUN yum update -y \
     jq-1.6-13.el9 \
     && yum -y clean all \
     && rm -rf /var/cache/yum
+
+RUN dnf install -y 'dnf-command(config-manager)' && \
+    dnf config-manager -y --add-repo "https://download.docker.com/linux/centos/docker-ce.repo" && \
+    # renovate: datasource=yum repo=docker-stable-centos-9-x86_64
+    dnf install -y docker-ce-cli-24.0.5-1.el9 && \
+    dnf clean all
