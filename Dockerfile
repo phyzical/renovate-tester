@@ -24,5 +24,5 @@ RUN  yum -y update \
     && update-crypto-policies --set DEFAULT:SHA1 \
     && yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y \
     && yum install -y \
-    # renovate: datasource=yum repo=rocky-9-appstream-x86_64/nodejs:16
+    # renovate: datasource=yum repo=rocky-9-appstream-x86_64
     nodejs-16.19.1
