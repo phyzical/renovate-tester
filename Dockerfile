@@ -19,3 +19,10 @@ RUN dnf install -y 'dnf-command(config-manager)' && \
     # renovate: datasource=yum repo=docker-stable-centos-9-x86_64
     docker-ce-cli-24.0.5-1.el9 \
     && dnf clean all
+
+RUN  yum -y update \
+    && update-crypto-policies --set DEFAULT:SHA1 \
+    && yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y \
+    && yum install -y \
+    # renovate: datasource=yum repo=rocky-9-appstream-x86_64/nodejs:16
+    nodejs-16.20.1
