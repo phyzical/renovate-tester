@@ -17,7 +17,7 @@ RUN dnf install -y 'dnf-command(config-manager)' && \
     dnf config-manager -y --add-repo "https://download.docker.com/linux/centos/docker-ce.repo" && \
     dnf install -y \
     # renovate: datasource=yum repo=docker-stable-centos-9-x86_64
-    docker-ce-cli-24.0.5-1.el9 \
+    docker-ce-cli-24.0.7-1.el9 \
     && dnf clean all
 
 RUN  yum -y update \
