@@ -41,6 +41,11 @@ module.exports = {
     {
         "matchDatasources": ["github-releases"],
         "extractVersion": "^v(?<version>.*)$"
+    },
+    {
+        "matchFileNames": ["Dockerfile"],
+        "matchDatasources": ["npm"],
+        "groupName": "yumPackages"
     }
     ]
 };
