@@ -9,7 +9,7 @@ ARG TRIVY_VERSION=0.45.0
 RUN yum update -y \
     && yum install -y \
     # renovate: datasource=yum repo=rocky-9-appstream-x86_64
-    jq-1.6-13.el9 \
+    jq-1.6-15.el9 \
     && yum -y clean all \
     && rm -rf /var/cache/yum
 
