@@ -44,7 +44,7 @@ module.exports = {
     },
     {
         "matchFileNames": ["Dockerfile"],
-        "matchDatasources": ["npm"],
+        "matchDatasources": ["yum"],
         "groupName": "yumPackages"
     }
     ]
