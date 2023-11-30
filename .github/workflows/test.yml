@@ -1,0 +1,11 @@
+name: "test"
+on:
+  push:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        run: |
+          sleep 10
+          echo "test"
