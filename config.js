@@ -27,7 +27,14 @@ module.exports = {
             "datasourceTemplate": "npm",
             "versioningTemplate": "loose",
             "registryUrlTemplate": "https://yum2npm.io/repos/{{replace '/' '/modules/' registryUrl}}/packages"
-        }
+        },
+        {
+            fileMatch: ['helm/.*\\.tf$'],
+            matchStrings: [
+                'repository.+"(?<registryUrl>[a-z].+)\".+\n.+chart.+"(?<depName>[a-z].+)\".+\n.+version.+"(?<currentValue>[^"].+)\"',
+            ],
+            datasourceTemplate: 'helm',
+        },
     ],
     packageRules: [{
         "matchPackageNames": ["cost-analyzer"],
@@ -47,5 +54,12 @@ module.exports = {
         // "matchDatasources": ["yum"],
         // "groupName": "yumPackages"
     }
+        // {
+        //     "matchManagers": [
+        //         "regex"
+        //     ],
+        //     "groupName": "Terraform helm packages",
+        //     "groupSlug": "terraform_helm"
+        // },
     ]
 };
