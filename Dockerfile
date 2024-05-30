@@ -9,7 +9,7 @@ ARG TRIVY_VERSION=0.45.0
 RUN yum update -y \
     && yum install -y \
     # renovate: datasource=yum repo=rocky-9-appstream-x86_64
-    jq-1.6-13.el9 \
+    jq-1.6-15.el9 \
     && yum -y clean all \
     && rm -rf /var/cache/yum
 
@@ -17,7 +17,7 @@ RUN dnf install -y 'dnf-command(config-manager)' && \
     dnf config-manager -y --add-repo "https://download.docker.com/linux/centos/docker-ce.repo" && \
     dnf install -y \
     # renovate: datasource=yum repo=docker-stable-centos-9-x86_64
-    docker-ce-cli-24.0.5-1.el9 \
+    docker-ce-cli-24.0.9-1.el9 \
     && dnf clean all
 
 RUN  yum -y update \
@@ -25,4 +25,4 @@ RUN  yum -y update \
     && yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y \
     && yum install -y \
     # renovate: datasource=yum repo=rocky-9-appstream-x86_64
-    nodejs-16.19.1-1.el9
+    nodejs-16.20.2-8.el9_4
