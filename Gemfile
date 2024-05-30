@@ -3,5 +3,5 @@
 source 'https://rubygems.org'
 
 group :development, :test do
-  gem 'faker'
+  # gem 'faker'
 end
