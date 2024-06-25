@@ -29,6 +29,6 @@ resource "aws_elasticache_replication_group" "redis_replication_group" {
 
 
 module "rds" {
-  # renovate:amiFilter=[{"Name":"engine","Values":["aurora-mysql"]},{"Name":"engine-version","Values":["8.0"]}]
+  # renovate:amiFilter=[{"Name":"engine","Values":["aurora-mysql"]}]
   engine_version = "8.0.mysql_aurora.3.06.0"
 }
