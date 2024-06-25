@@ -11,7 +11,7 @@ resource "aws_elasticache_replication_group" "redis_replication_group" {
   node_type                  = "cache.t3.small"
   subnet_group_name          = aws_elasticache_subnet_group.db_subnet_group.name
   # renovate: redis datasource=endoflife-date depName=redis versioning=loose
-  engine_version             = "6.x"
+  engine_version             = "7.2"
   multi_az_enabled           = true
   num_cache_clusters         = 2
   kms_key_id                 = aws_kms_key.encryption_key.arn
