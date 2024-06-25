@@ -1,4 +1,4 @@
-# renovate: eks datasource=endoflife-date depName=amazon-eks versioning=loose
+# renovate:datasource=endoflife-date depName=amazon-eks versioning=loose
 cluster_version = "1.24"
 
 
@@ -10,7 +10,7 @@ resource "aws_elasticache_replication_group" "redis_replication_group" {
   parameter_group_name       = aws_elasticache_parameter_group.redis_parameter_group.name
   node_type                  = "cache.t3.small"
   subnet_group_name          = aws_elasticache_subnet_group.db_subnet_group.name
-  # renovate: redis datasource=endoflife-date depName=redis versioning=loose
+  # renovate:datasource=endoflife-date depName=redis versioning=loose
   engine_version             = "6.x"
   multi_az_enabled           = true
   num_cache_clusters         = 2
