@@ -1,5 +1,5 @@
 # renovate: eks datasource=endoflife-date depName=amazon-eks versioning=loose
-cluster_version = "1.24"
+cluster_version = "1.30"
 
 
 resource "aws_elasticache_replication_group" "redis_replication_group" {
