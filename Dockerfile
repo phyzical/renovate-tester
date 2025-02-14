@@ -4,7 +4,7 @@ ARG DOCKLE_VERSION=0.4.12
 
 # https://github.com/aquasecurity/trivy/releases
 # renovate: datasource=github-releases depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.45.0
+ARG TRIVY_VERSION=0.59.1
 
 RUN yum update -y \
     && yum install -y \
