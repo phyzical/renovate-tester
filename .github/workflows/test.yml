@@ -12,3 +12,5 @@ jobs:
           configurationFile: renovate-config.js
           token: ${{ secrets.GITHUB_TOKEN }}
           env-regex: ^(?:RENOVATE_\w+|AWS_\w+|LOG_LEVEL|GITHUB_COM_TOKEN|NODE_OPTIONS|(?:HTTPS?|NO)_PROXY|(?:https?|no)_proxy)$
+        env:
+          RENOVATE_REPOSITORIES: '[phyzical/renovate-tester]'
