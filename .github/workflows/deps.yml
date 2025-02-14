@@ -39,7 +39,7 @@ jobs:
           # further documented in
           # https://www.jvt.me/posts/2023/10/13/renovate-graph-local/ and improve
           # the speed of dependency scanning
-          npx @jamietanna/renovate-graph@latest --platform local
+          npx @jamietanna/renovate-graph@latest --platform local --token ${{ secrets.GITHUB_TOKEN }}
         env:
           # As well as looking for pending updates, this also resolves version
           # constraints such as `~= 0.3` to `0.3.1`
@@ -52,7 +52,7 @@ jobs:
 
       - name: Generate SBOM
         run: |
-          renovate-to-sbom out/github-${{ steps.env.outputs.ORG_NAME }}-${{ steps.env.outputs.REPO_NAME }}.json --out-format spdx2.3+json 
+          renovate-to-sbom out/github-${{ steps.env.outputs.ORG_NAME }}-${{ steps.env.outputs.REPO_NAME }}.json --out-format spdx2.3+json --only-include-known-purl-types
 
       - uses: actions/upload-artifact@v4
         with:
