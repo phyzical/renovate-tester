@@ -39,8 +39,8 @@ jobs:
 
           # variables for `--platform local`
           RG_LOCAL_PLATFORM: github
-          RG_LOCAL_ORGANISATION: dagger
-          RG_LOCAL_REPO: dagger
+          RG_LOCAL_ORGANISATION: phyzical
+          RG_LOCAL_REPO: renovate-tester
 
       - name: Generate SBOM
         run: |
