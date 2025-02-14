@@ -16,6 +16,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set up environment variables
+        id: env
+        run: |
+          ORG_NAME=$(jq -r .repository.owner.login $GITHUB_EVENT_PATH)
+          REPO_NAME=$(jq -r .repository.name $GITHUB_EVENT_PATH)
+          echo "ORG_NAME=$ORG_NAME" >> $GITHUB_OUTPUT
+          echo "REPO_NAME=$REPO_NAME" >> $GITHUB_OUTPUT
+
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
@@ -39,12 +47,12 @@ jobs:
 
           # variables for `--platform local`
           RG_LOCAL_PLATFORM: github
-          RG_LOCAL_ORGANISATION: phyzical
-          RG_LOCAL_REPO: renovate-tester
+          RG_LOCAL_ORGANISATION: ${{ steps.env.outputs.ORG_NAME }}
+          RG_LOCAL_REPO: ${{ steps.env.outputs.REPO_NAME }}
 
       - name: Generate SBOM
         run: |
-          renovate-to-sbom out/github-dagger-dagger.json --out-format spdx2.3+json --only-include-known-purl-types
+          renovate-to-sbom out/github-${{ steps.env.outputs.ORG_NAME }}-${{ steps.env.outputs.REPO_NAME }}.json --out-format spdx2.3+json --only-include-known-purl-types
 
       - uses: actions/upload-artifact@v4
         with:
@@ -55,4 +63,4 @@ jobs:
         uses: advanced-security/spdx-dependency-submission-action@v0.0.1
         with:
           filePath: out
-          filePattern: github-dagger-dagger.json.spdx2.3.json
+          filePattern: github-${{ steps.env.outputs.ORG_NAME }}-${{ steps.env.outputs.REPO_NAME }}.json.spdx2.3.json
