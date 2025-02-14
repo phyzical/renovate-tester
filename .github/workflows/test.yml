@@ -10,7 +10,7 @@ jobs:
         uses: renovatebot/github-action@80eaf969abf68ad62aa94d9ab392421b31621634 # v40.3.4
         with:
           configurationFile: renovate-config.js
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.REPO_SCOPED_TOKEN }}
           env-regex: ^(?:RENOVATE_\w+|AWS_\w+|LOG_LEVEL|GITHUB_COM_TOKEN|NODE_OPTIONS|(?:HTTPS?|NO)_PROXY|(?:https?|no)_proxy)$
         env:
           RENOVATE_REPOSITORIES: '[phyzical/renovate-tester]'
