@@ -52,7 +52,7 @@ jobs:
 
       - name: Generate SBOM
         run: |
-          renovate-to-sbom out/github-${{ steps.env.outputs.ORG_NAME }}-${{ steps.env.outputs.REPO_NAME }}.json --out-format spdx2.3+json --only-include-known-purl-types
+          renovate-to-sbom out/github-${{ steps.env.outputs.ORG_NAME }}-${{ steps.env.outputs.REPO_NAME }}.json --out-format spdx2.3+json 
 
       - uses: actions/upload-artifact@v4
         with:
